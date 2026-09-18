@@ -6,7 +6,7 @@ export default function Footer() {
     <footer id="contact" className="footer container">
       <div className="footer-grid">
         <div className="footer-brand">
-          <img src="/logo.svg" alt="Sare Express" width={40} height={40} />
+          <img src={`${import.meta.env.BASE_URL}logo.svg`} alt="Sare Express" width={40} height={40} />
           <p>Sare Express connects herbal and cosmetics sellers with vetted riders across Nigeria.</p>
         </div>
         <div className="footer-col">

@@ -6,7 +6,7 @@ export default function Nav() {
     <nav className="nav container">
       <div className="nav-inner pill">
         <Link to="/" className="nav-brand">
-          <img src="/logo.svg" alt="Sare Express" width={32} height={32} />
+          <img src={`${import.meta.env.BASE_URL}logo.svg`} alt="Sare Express" width={32} height={32} />
           <span>Sare Express</span>
         </Link>
         <div className="nav-links">

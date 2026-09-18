@@ -1,18 +1,17 @@
 /* ============================================
-   CARGO — Local palette (scoped, does not leak)
+   CARGO — Local palette (scoped)
    ============================================ */
 .cargo {
-  --cargo-bg: #F4F2FB;              /* light warm lavender */
-  --cargo-bg-2: #EEEBF7;
-  --cargo-ink: #0F1731;             /* deep navy */
-  --cargo-ink-soft: #5A6178;        /* muted gray */
-  --cargo-line: rgba(15, 23, 49, 0.08);
-  --cargo-line-strong: rgba(15, 23, 49, 0.14);
-  --cargo-violet: #6366F1;          /* electric blue-violet */
-  --cargo-violet-2: #8B5CF6;
-  --cargo-navy: #0B1230;            /* dark card base */
-  --cargo-navy-2: #131B44;
-  --cargo-lavender: #B9B5DA;
+  --cargo-bg: #F4F7F2;                     /* light warm green-tinted cream */
+  --cargo-ink: #0F1012;
+  --cargo-ink-soft: #6B6F76;
+  --cargo-line: rgba(15, 16, 18, 0.08);
+  --cargo-line-strong: rgba(15, 16, 18, 0.14);
+  --cargo-green: #1FA463;
+  --cargo-green-hover: #17C274;
+  --cargo-coral: #FF4F79;
+  --cargo-coral-hover: #FF6D90;
+  --cargo-forest: #0B2018;                 /* dark card base — deep green-black */
 
   position: relative;
   overflow: hidden;
@@ -33,8 +32,8 @@
   height: 900px;
   background: radial-gradient(
     circle,
-    rgba(99, 102, 241, 0.10) 0%,
-    rgba(139, 92, 246, 0.05) 35%,
+    rgba(31, 164, 99, 0.12) 0%,
+    rgba(255, 79, 121, 0.05) 40%,
     transparent 70%
   );
   filter: blur(40px);
@@ -42,7 +41,7 @@
   z-index: 0;
 }
 
-/* Radial tick marks — top right corner, decorative */
+/* Radial tick marks — top right corner */
 .cargo-ticks {
   position: absolute;
   top: -140px;
@@ -59,9 +58,8 @@
   left: 50%;
   width: 1px;
   height: 20px;
-  background: var(--cargo-violet);
+  background: var(--cargo-green);
   transform-origin: 0 0;
-  /* push ticks outward */
   transform: translate(-50%, 0) translateY(-160px);
 }
 
@@ -85,9 +83,9 @@
   align-items: center;
   padding: 8px 18px;
   border-radius: 999px;
-  background: rgba(99, 102, 241, 0.08);
-  border: 1px solid rgba(99, 102, 241, 0.18);
-  color: var(--cargo-violet);
+  background: rgba(31, 164, 99, 0.08);
+  border: 1px solid rgba(31, 164, 99, 0.18);
+  color: var(--cargo-green);
   font-family: var(--font-mono);
   font-size: 0.72rem;
   letter-spacing: 0.16em;
@@ -203,14 +201,14 @@
 }
 
 /* ============================================
-   LEFT card — light
+   LEFT card — light, GREEN accents
    ============================================ */
 .cargo-card-light {
   background: #FFFFFF;
   border: 1px solid var(--cargo-line);
   box-shadow:
-    0 1px 2px rgba(15, 23, 49, 0.03),
-    0 20px 60px -20px rgba(15, 23, 49, 0.10);
+    0 1px 2px rgba(15, 16, 18, 0.03),
+    0 20px 60px -20px rgba(15, 16, 18, 0.10);
 }
 .cargo-card-light .cargo-card-title {
   color: var(--cargo-ink);
@@ -220,34 +218,33 @@
   border-color: var(--cargo-line);
 }
 .cargo-card-light .cargo-icon-ticks {
-  color: rgba(31, 164, 99, 0.35);
+  color: rgba(31, 164, 99, 0.4);
 }
 .cargo-card-light .cargo-icon {
-  background: linear-gradient(140deg, rgba(31, 164, 99, 0.10), rgba(31, 164, 99, 0.02));
-  border: 1px solid rgba(31, 164, 99, 0.18);
-  color: #1FA463;
+  background: linear-gradient(140deg, rgba(31, 164, 99, 0.12), rgba(31, 164, 99, 0.02));
+  border: 1px solid rgba(31, 164, 99, 0.20);
+  color: var(--cargo-green);
 }
 .cargo-card-light .cargo-check-green {
-  background: rgba(31, 164, 99, 0.10);
-  color: #1FA463;
+  background: rgba(31, 164, 99, 0.12);
+  color: var(--cargo-green);
 }
 
 /* ============================================
-   RIGHT card — dark navy
+   RIGHT card — deep GREEN dark card with CORAL accents
    ============================================ */
 .cargo-card-dark {
   background:
-    radial-gradient(circle at 20% 0%, rgba(99, 102, 241, 0.22) 0%, transparent 55%),
-    radial-gradient(circle at 100% 100%, rgba(139, 92, 246, 0.18) 0%, transparent 60%),
-    linear-gradient(160deg, var(--cargo-navy) 0%, var(--cargo-navy-2) 100%);
+    radial-gradient(circle at 20% 0%, rgba(31, 164, 99, 0.22) 0%, transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(255, 79, 121, 0.18) 0%, transparent 60%),
+    linear-gradient(160deg, #081812 0%, #0E2A1E 100%);
   border: 1px solid rgba(255, 255, 255, 0.06);
   box-shadow:
-    0 1px 2px rgba(15, 23, 49, 0.20),
-    0 32px 80px -24px rgba(11, 18, 48, 0.45);
+    0 1px 2px rgba(15, 16, 18, 0.20),
+    0 32px 80px -24px rgba(11, 32, 24, 0.45);
   color: #FFFFFF;
   position: relative;
 }
-/* subtle dotted texture in dark card */
 .cargo-card-dark::after {
   content: '';
   position: absolute;
@@ -267,18 +264,18 @@
   border-color: rgba(255, 255, 255, 0.08);
 }
 .cargo-card-dark .cargo-icon-ticks {
-  color: rgba(185, 181, 218, 0.35);
+  color: rgba(255, 79, 121, 0.4);
 }
 .cargo-card-dark .cargo-icon {
-  background: linear-gradient(140deg, rgba(139, 92, 246, 0.28), rgba(99, 102, 241, 0.10));
-  border: 1px solid rgba(139, 92, 246, 0.35);
-  color: #C4B5FD;
-  box-shadow: 0 0 40px rgba(139, 92, 246, 0.35);
+  background: linear-gradient(140deg, rgba(255, 79, 121, 0.25), rgba(255, 79, 121, 0.08));
+  border: 1px solid rgba(255, 79, 121, 0.35);
+  color: #FF8DA8;
+  box-shadow: 0 0 40px rgba(255, 79, 121, 0.30);
 }
 .cargo-card-dark .cargo-check-violet {
-  background: rgba(139, 92, 246, 0.20);
-  color: #C4B5FD;
-  border: 1px solid rgba(139, 92, 246, 0.30);
+  background: rgba(255, 79, 121, 0.18);
+  color: #FF8DA8;
+  border: 1px solid rgba(255, 79, 121, 0.30);
 }
 
 /* ============================================
@@ -316,12 +313,5 @@
   .cargo-list li {
     font-size: 0.9rem;
     padding: 14px 0;
-  }
-}
-
-/* Reduced motion — we have no motion here, but keep the guard */
-@media (prefers-reduced-motion: reduce) {
-  .cargo-ticks span {
-    transition: none;
   }
 }
