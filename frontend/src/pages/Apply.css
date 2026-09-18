@@ -1,0 +1,30 @@
+.apply-container { max-width: 800px; margin: 40px auto; padding-bottom: 80px; }
+.apply-sub { color: var(--soft-ink); margin-bottom: 32px; }
+.progress-bar { display: flex; gap: 24px; margin-bottom: 40px; }
+.progress-step { display: flex; align-items: center; gap: 8px; opacity: 0.4; transition: opacity 0.3s; }
+.progress-step.active { opacity: 1; }
+.progress-dot { width: 32px; height: 32px; border-radius: 50%; background: var(--green); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; }
+.progress-step:not(.active) .progress-dot { background: var(--border); color: var(--soft-ink); }
+.progress-label { font-weight: 500; font-size: 0.9rem; }
+.form-container { background: var(--surface); border-radius: var(--radius-card); padding: 40px; border: 1px solid var(--border); box-shadow: var(--shadow-sm); }
+.form-step { animation: slideIn 0.3s ease; }
+.form-container.slide-out .form-step { animation: slideOut 0.2s ease; }
+.form-step h3 { font-size: 1.4rem; margin-bottom: 24px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-grid input, .form-grid select { padding: 12px 16px; border-radius: 12px; border: 1px solid var(--border); background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 0.95rem; width: 100%; }
+.form-grid input:focus, .form-grid select:focus { outline: 2px solid var(--green); border-color: transparent; }
+.file-input { display: flex; flex-direction: column; gap: 6px; font-size: 0.85rem; color: var(--soft-ink); }
+.file-input input { padding: 8px; }
+.form-actions { display: flex; gap: 12px; justify-content: flex-end; margin-top: 32px; }
+.review-grid { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+.review-item { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: var(--bg); border-radius: 12px; }
+.review-item span { color: var(--soft-ink); font-size: 0.9rem; }
+.review-item strong { flex: 1; margin-left: 16px; }
+.review-item button { background: none; border: none; color: var(--green); font-weight: 600; cursor: pointer; }
+.consent { display: flex; gap: 12px; align-items: flex-start; padding: 16px; background: rgba(31,164,99,0.05); border-radius: 12px; font-size: 0.9rem; }
+.confirmation-card { text-align: center; padding: 60px 32px; background: var(--surface); border-radius: var(--radius-card); border: 1px solid var(--border); }
+.check-icon { width: 64px; height: 64px; border-radius: 50%; background: var(--green); color: #fff; font-size: 2rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; }
+.confirmation-card h2 { margin-bottom: 12px; }
+.app-id { margin-bottom: 16px; color: var(--soft-ink); }
+.confirmation-note { margin-top: 16px; color: var(--soft-ink); max-width: 400px; margin-inline: auto; }
+@media (max-width: 600px) { .form-grid { grid-template-columns: 1fr; } }

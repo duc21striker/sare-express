@@ -1,0 +1,37 @@
+.coverage {
+  padding-block: var(--section-py);
+  text-align: center;
+}
+.coverage h2 {
+  margin-bottom: 40px;
+}
+.city-chips {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.chip {
+  padding: 14px 28px;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 0.95rem;
+  font-family: var(--font-head);
+  letter-spacing: 0.01em;
+}
+.chip-live {
+  background: var(--green);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(31, 164, 99, 0.25);
+}
+.chip-soon {
+  border: 2px dashed var(--border);
+  color: var(--soft-ink);
+  background: transparent;
+}
+.chip-soon small {
+  font-weight: 400;
+  font-size: 0.75rem;
+  margin-left: 6px;
+  opacity: 0.7;
+}

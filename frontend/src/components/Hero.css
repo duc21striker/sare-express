@@ -1,0 +1,360 @@
+/* ============================================
+   HERO — Root
+   ============================================ */
+.hero {
+  position: relative;
+  padding: 160px 0 100px;
+  overflow: hidden;
+}
+
+/* Ambient glow */
+.hero-glow {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 800px;
+  height: 800px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle,
+    rgba(31, 164, 99, 0.15) 0%,
+    rgba(255, 79, 121, 0.06) 40%,
+    transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  animation: glowPulse 8s ease-in-out infinite;
+  opacity: 0.5;
+}
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
+  50%      { opacity: 0.7; transform: translate(-50%, -50%) scale(1.1); }
+}
+[data-time="night"] .hero-glow {
+  background: radial-gradient(circle,
+    rgba(31, 164, 99, 0.28) 0%,
+    rgba(255, 79, 121, 0.14) 40%,
+    transparent 70%);
+}
+
+/* ============================================
+   HERO — Layout
+   ============================================ */
+.hero-layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 64px;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.hero-left { text-align: left; }
+.hero-right { position: relative; }
+
+/* ============================================
+   HERO — Editorial headline
+   ============================================ */
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.75rem, 6.5vw, 5.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  margin: 0 0 32px;
+  color: var(--ink);
+}
+.hero-title .serif-italic {
+  color: var(--green);
+}
+
+.hero-sub {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  color: var(--soft-ink);
+  max-width: 52ch;
+  margin-bottom: 40px;
+  line-height: 1.7;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 64px;
+}
+
+/* ============================================
+   HERO — Editorial footnotes
+   ============================================ */
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border-strong);
+  flex-wrap: wrap;
+}
+.hero-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.meta-value {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  line-height: 1;
+  color: var(--ink);
+}
+.meta-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--soft-ink);
+}
+.hero-meta-divider {
+  width: 1px;
+  height: 32px;
+  background: var(--border-strong);
+}
+
+/* ============================================
+   HERO — Rings + orbit icons
+   ============================================ */
+.hero-rings {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.orbit-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed var(--border-strong);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.6;
+}
+.ring-1 {
+  width: min(600px, 90vw);
+  height: min(600px, 90vw);
+  animation: spin 90s linear infinite;
+}
+.ring-2 {
+  width: min(900px, 130vw);
+  height: min(900px, 130vw);
+  animation: spin 120s linear infinite reverse;
+  opacity: 0.4;
+}
+
+.orbit-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+.ring-1 .orbit-icon-inner {
+  display: inline-block;
+  animation: spin 90s linear infinite reverse;
+}
+.ring-2 .orbit-icon-inner {
+  display: inline-block;
+  animation: spin 120s linear infinite;
+}
+
+.ring-1 .orbit-icon-1 { transform: translate(-50%, -50%) rotate(0deg)   translate(0, -300px) rotate(0deg); }
+.ring-1 .orbit-icon-2 { transform: translate(-50%, -50%) rotate(90deg)  translate(0, -300px) rotate(-90deg); }
+.ring-1 .orbit-icon-3 { transform: translate(-50%, -50%) rotate(180deg) translate(0, -300px) rotate(-180deg); }
+.ring-1 .orbit-icon-4 { transform: translate(-50%, -50%) rotate(270deg) translate(0, -300px) rotate(-270deg); }
+
+.ring-2 .orbit-icon-1 { transform: translate(-50%, -50%) rotate(0deg)   translate(0, -450px) rotate(0deg); }
+.ring-2 .orbit-icon-2 { transform: translate(-50%, -50%) rotate(90deg)  translate(0, -450px) rotate(-90deg); }
+.ring-2 .orbit-icon-3 { transform: translate(-50%, -50%) rotate(180deg) translate(0, -450px) rotate(-180deg); }
+.ring-2 .orbit-icon-4 { transform: translate(-50%, -50%) rotate(270deg) translate(0, -450px) rotate(-270deg); }
+
+/* ============================================
+   HERO — Live tracking card
+   ============================================ */
+.tracking-card {
+  background: var(--surface);
+  border-radius: var(--radius-card);
+  border: 1px solid var(--border);
+  padding: 24px;
+  box-shadow: var(--shadow-lg);
+  transform: perspective(800px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform 0.2s ease-out;
+  will-change: transform;
+  max-width: 440px;
+  margin-inline: auto;
+}
+
+.tracking-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.tracking-live {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--ink);
+}
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--coral);
+  animation: livePulse 2s ease-out infinite;
+}
+@keyframes livePulse {
+  0%   { box-shadow: 0 0 0 0 rgba(255, 79, 121, 0.55); }
+  70%  { box-shadow: 0 0 0 10px rgba(255, 79, 121, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 79, 121, 0); }
+}
+.tracking-order {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: var(--soft-ink);
+}
+
+/* Timeline */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 8px;
+}
+.timeline-row {
+  display: grid;
+  grid-template-columns: 40px 1fr auto;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 8px;
+  border-radius: 14px;
+  transition: background 0.3s ease, opacity 0.3s ease;
+}
+.timeline-row.is-active {
+  background: rgba(31, 164, 99, 0.06);
+}
+.timeline-row.is-pending {
+  opacity: 0.45;
+}
+
+.timeline-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  transition: background 0.3s, border-color 0.3s, color 0.3s;
+}
+.timeline-row.is-done .timeline-icon {
+  background: rgba(31, 164, 99, 0.12);
+  border-color: rgba(31, 164, 99, 0.25);
+  color: var(--green);
+}
+.timeline-row.is-active .timeline-icon {
+  background: var(--green);
+  border-color: var(--green);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(31, 164, 99, 0.3);
+}
+.timeline-row.is-pending .timeline-icon {
+  color: var(--soft-ink);
+}
+
+.timeline-body {
+  padding-top: 2px;
+  min-width: 0;
+}
+.timeline-title {
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--ink);
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.timeline-sub {
+  font-size: 0.78rem;
+  color: var(--soft-ink);
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.timeline-time {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--soft-ink);
+  padding-top: 4px;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.timeline-row.is-active .timeline-time {
+  color: var(--green);
+  font-weight: 600;
+}
+
+/* ============================================
+   HERO — Responsive
+   ============================================ */
+@media (max-width: 960px) {
+  .hero-layout {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .hero {
+    padding: 80px 0 60px;
+  }
+  .hero-right {
+    max-width: 480px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .ring-2 .orbit-icon { display: none; }
+}
+@media (max-width: 640px) {
+  .hero-meta { gap: 20px; }
+  .meta-value { font-size: 1.4rem; }
+  .hero-meta-divider { display: none; }
+  .orbit-icon { width: 36px; height: 36px; font-size: 1rem; }
+  .ring-1 .orbit-icon-1 { transform: translate(-50%, -50%) rotate(0deg)   translate(0, -220px) rotate(0deg); }
+  .ring-1 .orbit-icon-2 { transform: translate(-50%, -50%) rotate(90deg)  translate(0, -220px) rotate(-90deg); }
+  .ring-1 .orbit-icon-3 { transform: translate(-50%, -50%) rotate(180deg) translate(0, -220px) rotate(-180deg); }
+  .ring-1 .orbit-icon-4 { transform: translate(-50%, -50%) rotate(270deg) translate(0, -220px) rotate(-270deg); }
+  .tracking-card { padding: 16px; }
+  .timeline-row { grid-template-columns: 34px 1fr auto; gap: 10px; padding: 10px 6px; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-glow { animation: none; }
+  .ring-1, .ring-2 { animation: none; }
+  .ring-1 .orbit-icon-inner,
+  .ring-2 .orbit-icon-inner { animation: none; }
+  .live-dot { animation: none; }
+}

@@ -1,0 +1,151 @@
+.how {
+  position: relative;
+  padding-block: var(--section-py);
+  padding-inline: var(--container-px);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.how-inner {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* Left column — heading + progress, sticks gently as you scroll */
+.how-aside {
+  position: sticky;
+  top: 140px;
+  align-self: start;
+  padding-bottom: 40px;
+}
+
+.how-aside h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  line-height: 1.05;
+  margin: 16px 0 40px;
+  max-width: 14ch;
+  color: var(--ink);
+}
+
+.how-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.how-progress-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--soft-ink);
+  transition: color 0.3s;
+  text-align: left;
+  width: 100%;
+}
+.how-progress-item.is-active { color: var(--ink); }
+.how-progress-num { min-width: 32px; }
+
+.how-progress-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border-strong);
+  position: relative;
+  overflow: hidden;
+}
+.how-progress-line::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--green);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease;
+}
+.how-progress-item.is-active .how-progress-line::after {
+  transform: scaleX(1);
+}
+.how-progress-item.is-past .how-progress-line::after {
+  transform: scaleX(1);
+  background: var(--border-strong);
+}
+
+/* Right column — stacked steps */
+.how-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.how-step {
+  padding: 48px 0;
+  border-bottom: 1px solid var(--border);
+  opacity: 0.3;
+  transform: translateY(8px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.how-step.is-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+.how-step.is-past {
+  opacity: 0.55;
+  transform: translateY(0);
+}
+.how-step:last-child {
+  border-bottom: none;
+}
+
+.how-step-num {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  color: var(--green);
+  text-transform: uppercase;
+  display: block;
+}
+.how-step h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 400;
+  margin: 12px 0 16px;
+  color: var(--ink);
+  line-height: 1.1;
+}
+.how-step p {
+  font-size: 1rem;
+  color: var(--soft-ink);
+  max-width: 52ch;
+  line-height: 1.7;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .how-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .how-aside {
+    position: static;
+  }
+  .how-progress { display: none; }
+  .how-step {
+    opacity: 1;
+    transform: none;
+    padding: 32px 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .how-step {
+    opacity: 1;
+    transform: none;
+  }
+}

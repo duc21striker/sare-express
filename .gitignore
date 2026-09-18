@@ -1,0 +1,40 @@
+# Node / frontend
+node_modules/
+dist/
+.vite/
+*.local
+.env
+.env.local
+.env.*.local
+
+# Python / backend
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.env
+
+# Database
+*.db
+*.sqlite3
+sare_express.db
+
+# Uploads (rider documents — never commit these)
+uploads/
+
+# Editor / OS
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Build artifacts
+frontend/dist/
+backend/uploads/
