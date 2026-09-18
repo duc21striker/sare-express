@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Sare Express</title>
+    <script>
+      var path = window.location.pathname;
+      var base = '/sare-express/';
+      if (path.indexOf(base) === 0) path = path.slice(base.length - 1);
+      var url = base + '?p=' + encodeURIComponent(path + window.location.search + window.location.hash);
+      window.location.replace(url);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -18,7 +18,7 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.PROD ? '/sare-express' : '/'}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/apply" element={<Apply />} />

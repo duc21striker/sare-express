@@ -1,6 +1,12 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <script>
+  (function () {
+    var p = new URLSearchParams(window.location.search).get('p');
+    if (p) window.history.replaceState(null, '', '/sare-express' + p);
+  })();
+</script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sare Express — Herbs & Beauty, Delivered</title>
@@ -8,5 +14,13 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+  (function () {
+    var p = new URLSearchParams(window.location.search).get('p');
+    if (p) {
+      window.history.replaceState(null, '', '/sare-express' + p);
+    }
+  })();
+</script>
   </body>
 </html>
